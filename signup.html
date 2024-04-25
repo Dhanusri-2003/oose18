@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="signup.css" />
+    <!-- Link to your CSS stylesheet -->
+    <script>
+      function validateForm() {
+        var name = document.getElementById('name').value
+        var department = document.getElementById('department').value
+        var year = document.getElementById('year').value
+        var college = document.getElementById('college').value
+        var email = document.getElementById('email').value
+        var username = document.getElementById('username').value
+        var password = document.getElementById('password').value
+        var confirm_password = document.getElementById('confirm_password').value
+
+        // Regular expressions for validation
+        var passwordRegex =
+          /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,11}$/
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        var nameRegex = /^[a-zA-Z]+$/
+        var usernameRegex = /^[a-zA-Z0-9]{4,11}$/
+
+        // Validate password
+        if (!password.match(passwordRegex)) {
+          alert(
+            'Password must be alphanumeric with at least one special character and range from 4 to 11 characters.'
+          )
+          return false
+        }
+
+        // Validate email
+        if (!email.match(emailRegex)) {
+          alert('Please enter a valid email address.')
+          return false
+        }
+
+        // Validate name
+        if (!name.match(nameRegex)) {
+          alert('Name should contain only alphabets.')
+          return false
+        }
+
+        // Validate username
+        if (!username.match(usernameRegex)) {
+          alert(
+            'Username must be alphanumeric and range from 4 to 11 characters.'
+          )
+          return false
+        }
+
+        // Validate year
+        if (year < 1 || year > 4) {
+          alert('Year should be a number from 1 to 4.')
+          return false
+        }
+
+        // Other validations such as department dropdown can be added here if needed
+
+        // Validate confirm password
+        if (password !== confirm_password) {
+          alert('Passwords do not match.')
+          return false
+        }
+
+        return true // Form submission allowed if all validations pass
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Signup Form</h2>
+    <form action="signup1.php" method="POST" onsubmit="return validateForm()">
+      <!-- Form submits data to a PHP file for processing -->
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" name="name" required /><br />
+
+      <label for="department">Department:</label><br />
+      <select id="department" name="department" required>
+        <option value="" disabled selected>Select department</option>
+        <option value="IT">Information Technology</option>
+        <option value="CS">Computer Science</option>
+        <option value="EC">Electronics and Communication</option>
+        <!-- Add more department options as needed --></select
+      ><br />
+
+      <label for="year">Year:</label><br />
+      <input
+        type="number"
+        id="year"
+        name="year"
+        min="1"
+        max="4"
+        required
+      /><br />
+
+      <label for="college">College Name:</label><br />
+      <input type="text" id="college" name="college" required /><br />
+
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" required /><br />
+
+      <label for="username">Username:</label><br />
+      <input type="text" id="username" name="username" required /><br />
+
+      <label for="password">Password:</label><br />
+      <input type="password" id="password" name="password" required /><br />
+
+      <label for="confirm_password">Confirm Password:</label><br />
+      <input
+        type="password"
+        id="confirm_password"
+        name="confirm_password"
+        required
+      /><br /><br />
+
+      <input type="submit" value="Signup" />
+      <h3>
+        Have an account?
+        <button onclick="window.location.href='login.html'">Login here</button>
+      </h3>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Registration System</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #021503;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin: 20px;
+    }
+
+    .tabs input[type='radio'] {
+      display: none;
+    }
+
+    .tabs label {
+      padding: 15px 20px;
+      margin-right: 10px;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tabs label:hover {
+      background-color: #f0f0f0;
+    }
+
+    .tabs input[type='radio']:checked + label {
+      background-color: #e0e0e0;
+      border-bottom-color: #45a049;
+      color: #020e03;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+      border-radius: 0 0 5px 5px;
+      border-top: 2px solid #45a049;
+    }
+
+    .tabs input[type='radio']:checked ~ .tab-content {
+      display: block;
+    }
+    h1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+      color: #000c02;
+    }
+  </style>
+  <body>
+    <div class="tabs">
+      <input type="radio" name="tabs" id="tab1" checked />
+      <h3>
+        <label for="tab1"><a href="registration2.php">register</a></label>
+      </h3>
+
+      <input type="radio" name="tabs" id="tab2" />
+      <h3>
+        <label for="tab2"><a href="changepass.html">Change password</a></label>
+      </h3>
+
+      <input type="radio" name="tabs" id="tab3" />
+      <h3>
+        <label for="tab3"><a href="profilepage.php">profile</a></label>
+      </h3>
+      <input type="radio" name="tabs" id="tab4" />
+      <h3>
+        <label for="tab3"
+          ><a href="coursedescription.php">course Information</a></label
+        >
+      </h3>
+      <input type="radio" name="tabs" id="tab5" />
+      <h3>
+        <div class="tab" onclick="location.href='firstpage.html'">logout</div>
+      </h3>
+    </div>
+    <h1>COURSE REGISTRATION SYSTEM</h1>
+  </body>
+</html>
